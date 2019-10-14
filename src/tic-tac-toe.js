@@ -65,7 +65,7 @@ class TicTacToe {
 			let arr = this.FIELD[row_idx];
 			let rowSum = arr => arr.reduce((a,b) => a + b, 0);
 
-    	    if (rowSum === -this.FIELD_SIZE)
+    	    if (rowSum(arr) === -this.FIELD_SIZE)
     	    	pout_char[0] = this.CHAR_X;
             else if(rowSum === this.FIELD_SIZE)
     	    	pout_char[0] = this.CHAR_0;
@@ -126,11 +126,11 @@ class TicTacToe {
     			break;
     		}
     	}
-		out_NoEmptyCellsOnField;
+		return out_NoEmptyCellsOnField;
     }
 
     isDraw() {
-		return (this.getWinner() === null) && this.noMoreTurns;
+		return (this.getWinner() === null) && this.noMoreTurns();
     }
 
     // class internals ;-)
